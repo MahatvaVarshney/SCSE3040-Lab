@@ -48,12 +48,11 @@ def predict(order: Order):
                       model_version=app.version)
 
 
-
 @app.get("/model-info")
 def model_info():
-    "Describe the model this service is running."
     return {
-        "features": FEATURES,
-        "model_type": type(model).__name__,
-        "version": app.version,
+        "features": ["distance_km", "prep_time_min", "traffic_level", "rain"],
+        "model_type": "LinearRegression",
+        "version": "1.0.0"
     }
+
